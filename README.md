@@ -1,14 +1,14 @@
 # Laravel-React SPA
+This is my fork of the zaichaopan/laravel-react-spa repo
 
-Starter Boilerplate SPA made with Laravel and React.
+Boilerplate for your SPA made with Laravel and React.
 
 ## Features
 
-- Laravel 7, React, React Router
+- Laravel 8, React, React Router
 - React Hook, React Context for state management
 - Authentication with JWT
 - Login, register, reset password
-- Flexible Page Layout
 - Flexible, Protected Routing
 - Tailwind CSS
 - ESlint
@@ -16,13 +16,13 @@ Starter Boilerplate SPA made with Laravel and React.
 ## Installation
 
 - Clone the repo
-- Installing all Composer & NPM dependencies.
+- Install all Composer & NPM dependencies.
 
 ```bash
 composer install && npm install
 ```
 
-- Copy .env.example to .env
+- Copy .env.example to .env (add your db credentials)
 - Generate app key
 
 ```bash

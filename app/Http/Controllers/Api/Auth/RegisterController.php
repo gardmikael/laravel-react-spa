@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
     public function __invoke(Request $request)
     {
         $this->validate($request, [
+			'first_name' => 'required|string|min:3|max:255',
+			'last_name' => 'required|string|min:3|max:255',
             'email' => 'email|required|unique:users,email',
-            'name' => 'required|string|min:4|max:255',
             'password' => 'required|string|min:8|confirmed'
-        ]);
+		]);
 
         $user = User::create([
+			'first_name' => $request->first_name,
+			'last_name' => $request->last_name,
             'email' => $request->email,
-            'name' => $request->name,
             'password' => bcrypt($request->password),
         ]);
 

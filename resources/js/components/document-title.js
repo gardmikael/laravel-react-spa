@@ -1,9 +1,9 @@
-let { useEffect } = require('react');
+let { useEffect } = require('react')
 
 function useDocumentTitle (title) {
-  useEffect(() => {
-    document.title = title;
-  }, [title]);
+	useEffect(() => {
+		document.title = `Laravel React SPA | ${title}`
+	}, [title])
 }
 
-export default useDocumentTitle;
+export default useDocumentTitle

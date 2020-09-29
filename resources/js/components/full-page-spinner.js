@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 function FullPageSpinner () {
-  return (
-    <div className="p-2">loading</div>
-  );
+	return (
+		<div className="p-2">loading</div>
+	)
 }
 
-export default FullPageSpinner;
+export default FullPageSpinner

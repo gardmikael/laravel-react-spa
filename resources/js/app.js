@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './router';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './router'
 
-import { AuthProvider } from './context/auth';
+import { AuthProvider } from './context/auth'
 
 ReactDOM.render(
-  <AuthProvider>
-    <App />
-  </AuthProvider>,
-  document.getElementById('app')
-);
+	<AuthProvider>
+		<App />
+	</AuthProvider>,
+	document.getElementById('app')
+)

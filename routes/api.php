@@ -5,31 +5,21 @@
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
 
-Route::name('api.')->namespace('Api')->group(function () {
-    // Unprotected routes
-    Route::group(['middleware' => 'guest:api'], function () {
-        Route::namespace('Auth')->group(function () {
-            Route::post('login', 'LoginController')->name('login');
-            Route::post('register', 'RegisterController')->name('register');
+// Unprotected routes
+Route::group(['middleware' => 'guest:api'], function () {
 
-            // Password Reset Routes...
-            Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
-            Route::post('password/reset', 'ResetPasswordController@reset');
-        });
-    });
-
-    // Protected routes
-    Route::middleware('auth:api')->group(function () {
-        Route::namespace('Auth')->group(function () {
-            Route::get('me', 'MeController@me')->name('me');
-            Route::post('logout', 'LogoutController@logout')->name('logout');
-        });
-    });
+		Route::post('login', App\Http\Controllers\Api\Auth\LoginController::class)->name('login');
+		Route::post('register', App\Http\Controllers\Api\Auth\RegisterController::class)->name('register');
+			// Password Reset Routes...
+		Route::post('password/email', [App\Http\Controllers\Api\Auth\ForgotPasswordController::class, 'sendResetLinkEmail']);
+		Route::post('password/reset', [App\Http\Controllers\Api\Auth\ResetPasswordController::class, 'reset']);
 });
+
+// Protected routes
+Route::middleware('auth:api')->group(function () {
+	Route::get('me', [App\Http\Controllers\Api\Auth\MeController::class, 'me'])->name('me');
+	Route::post('me', [App\Http\Controllers\Api\Auth\MeController::class, 'logout'])->name('logout');
+});
+
